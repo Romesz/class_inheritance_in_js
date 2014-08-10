@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>EM5 class</title>
+    </head>
+    <body>
+        <script>
+            var c_Vehicle = function(brand, year, colour)
+            {
+                this.brand  = brand;
+                this.year   = year;
+                this.colour = colour;
+            }
+            c_Vehicle.prototype.summery = function()
+            {
+                return 'brand: ' + this.brand + ' year: ' + this.year + ' colour: ' + this.colour;
+            }
+            /*** --- Vehicle class --- ***/
+            
+            var c_Car = function(brand, year, colour)
+            {
+                this.brand  = brand;
+                this.year   = year;
+                this.colour = colour;
+                this.type   = 'car';
+            }
+            c_Car.prototype = new c_Vehicle();
+            c_Car.prototype.summery = function()
+            {
+                return 'brand: ' + this.brand + ' year: ' + this.year + ' colour: ' + this.colour + ' type: ' + this.type;
+            }
+            /*** --- Car class --- ***/
+            
+            var c_Bike = function(brand, year, colour)
+            {
+                this.brand  = brand;
+                this.year   = year;
+                this.colour = colour;
+                this.type   = 'bike';
+            }
+            c_Bike.prototype = new c_Vehicle();
+            c_Bike.prototype.summery = function()
+            {
+                return 'brand: ' + this.brand + ' year: ' + this.year + ' colour: ' + this.colour + ' type: ' + this.type;
+            }
+            /*** --- Bike class --- ***/
+            
+            var mercedes = new c_Vehicle('mercedes', 2013, 'black');
+            var mercedesSummery = mercedes.summery();
+            console.log(mercedesSummery);
+            /*** --- Vehicle Class --- ***/
+            
+            var audi = new c_Car('audi', 1989, 'red');
+            var audiSummery = audi.summery();
+            console.log(audiSummery);
+            /*** --- Car inheritence --- ***/
+            
+            var suzuki = new c_Bike('suzuki', 2009, 'black');
+            var suzukiSummery = suzuki.summery();
+            console.log(suzukiSummery);
+            /*** --- Bike inheritence --- ***/
+            
+        </script>
+    </body>
+</html>
